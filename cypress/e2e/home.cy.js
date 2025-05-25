@@ -4,6 +4,7 @@ describe('Shopify', () => {
     cy.visit('/')
     cy.get('#password').type(Cypress.env('storePassword'))
     cy.get('button').click()
+    cy.get('body',{timeout:10000}).should('not.contain','#password')
     cy.get('#shopify-pc__banner__btn-accept').click()
   })
 
